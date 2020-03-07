@@ -18,17 +18,47 @@
       
     输出样例 2：
     SS123
- */
-#include<stdio.h>
-#include<stdint.h>
 
+ */
+#include <iostream>
+#include <cstdint>
+#include <cstdio>
+#include <algorithm>
+using namespace std;
 
 int main()
 {
     freopen("data.txt","r", stdin);
-    
-
-
-
+    int n;
+    int arr[5], pos;
+    while (scanf("%d", &n) != EOF)
+    {
+        pos = 0;
+        while (n != 0)
+        {
+            arr[pos++] = n % 10;
+            n /= 10;
+        }
+        for (int i = pos-1; i >= 0; i--)
+        {
+            if(i == 2) {
+                for (int j = 0; j < arr[i]; j++)
+                {
+                    printf("B");
+                }
+            }else if(i == 1) {
+                for (int j = 0; j < arr[i]; j++)
+                {
+                    printf("S");
+                }
+            }else {
+                for (int j = 1; j <= arr[i]; j++)
+                {
+                    printf("%d", j);
+                }
+            }
+        }
+        printf("\n");
+    }
     return 0;
 }
