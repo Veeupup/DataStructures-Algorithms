@@ -19,12 +19,9 @@
     输出样例 2：
     SS123
  */
+#include<stdio.h>
+#include<stdint.h>
 
-#include <iostream>
-#include <cstdint>
-#include <cstdio>
-#include <algorithm>
-using namespace std;
 
 int main()
 {
@@ -34,5 +31,4 @@ int main()
 
 
     return 0;
-
 }

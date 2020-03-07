@@ -29,7 +29,11 @@ Temporary Items
  
 ### VisualStudioCode ###
 *.vscode/*
+
+### windows 10 ###
 *.out
+*.exe
+*.o
  
 # End of https://www.gitignore.io/api/macos,visualstudiocode
 
