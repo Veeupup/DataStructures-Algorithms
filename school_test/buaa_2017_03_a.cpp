@@ -1,18 +1,7 @@
 /*
     Author: Veeupup
-
-    最长线段长度
-    
-    input:
-        5
-        1 2 2 3
-        2 3 4 5
-        6 7 8 9
-        8 9 10 11
-        10 11 12 13
-    
-    output:
-        
+    每行输入三个成员，第一个输入为成员，剩下两个输入为该成员的两个孩子姓名
+    最后一行的输入
 
  */
 #include <iostream>
@@ -20,8 +9,6 @@
 #include <cstdio>
 #include <algorithm>
 using namespace std;
-
-
 
 int main()
 {
