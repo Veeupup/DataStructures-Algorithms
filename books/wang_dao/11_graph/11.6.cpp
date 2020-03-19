@@ -40,7 +40,7 @@ struct Point {
     int distance;   // 源点到该点的距离
     Point(int n, int d): number(n), distance(d) {}
     bool operator< (const Point& p) const {
-        return distance > p.distance;   // 举例小的优先级高
+        return distance > p.distance;   // 距离小的优先级高
     }
 };
 

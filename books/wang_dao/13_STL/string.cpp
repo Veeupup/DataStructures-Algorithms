@@ -73,6 +73,12 @@ int main()
     cout << "Example - find () : The position (forward) of 'some' is: " << (int) n1 << endl;
     cout << "Example - rfind () : The position (reverse) of 'some' is: " << (int) rn1 << endl;
 
+    str = "Thank you for you smile";
+    str1 = "you";
+    if(str.find(str1) != string::npos) {
+        cout << str.find(str1) <<endl;
+    }
+
     return 0;
 }
 

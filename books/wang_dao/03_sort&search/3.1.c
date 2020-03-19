@@ -5,6 +5,7 @@ int arr[101];
 void merge(int A[], int L1, int R1, int L2, int R2);
 void mergeSort(int A[], int left, int right);
 void fastSort(int a[], int low, int high);
+void bubbleSort(int a[], int len); 
 
 int main()
 {
@@ -16,14 +17,14 @@ int main()
             scanf("%d", &arr[i]);
         }
         // mergeSort(arr, 0, n - 1);
-        fastSort(arr, 0, n-1);
+        // fastSort(arr, 0, n-1);
+        bubbleSort(arr, n);
         for (int i = 0; i < n; i++)
         {
             printf("%d ", arr[i]);
         }
         printf("\n");
     }
-
     return 0;
 }
 
@@ -94,3 +95,20 @@ void fastSort(int a[], int low, int high)
         fastSort(a, i + 1, high);
     }
 }
+
+// 冒泡排序
+void bubbleSort(int a[], int len)
+{
+    for (int i = 0; i < len; i++)
+    {
+        for (int j = i+1; j < len; j++)
+        {
+            if(a[i] > a[j]) 
+            {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+};
