@@ -27,10 +27,6 @@ int main()
 {
     Solution *so = new Solution();
     int x1 = 1;
-    
-
-
-
     return 0;
 
 }

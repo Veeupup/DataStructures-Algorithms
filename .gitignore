@@ -29,6 +29,8 @@ Temporary Items
  
 ### VisualStudioCode ###
 *.vscode/*
+
+### IDEA ###
 *.idea/*
 
 ### windows 10 ###
