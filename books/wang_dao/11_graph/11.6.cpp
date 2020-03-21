@@ -91,6 +91,5 @@ int main()
         }
         printf("%d\n", dis[t]);
     }
-    
     return 0;
 }
