@@ -29,6 +29,7 @@ Temporary Items
  
 ### VisualStudioCode ###
 *.vscode/*
+*.dSYM
 
 ### IDEA ###
 *.idea/*

@@ -17,6 +17,8 @@ using namespace std;
           * 如果低于或者等于栈顶，就将操作符栈的操作符不断弹出到后缀表达式中，直到 op 的优先级高于栈顶操作符
         * 重复直到中缀表达式扫描完毕，如果操作符栈中仍然有元素，则依次弹出放到后缀表达式中
     
+    如果遇到左括号直接压入栈，随后正常进行，直到遇到右括号时，一直从符号栈弹出加入到后缀表达式中
+
     2. 计算后缀表达式
         * 从左到右扫描后缀表达式，如果是操作数，就压入栈，如果是操作符，就连续弹出两个操作数，（后弹出的是第一操作数）
         * 然后进行操作符的操作，直到后缀表达式扫描完毕，这个时候结果栈中只剩一个元素，即为运算的结果
@@ -37,25 +39,49 @@ map<char, int> op;
 
 void Change()
 {
-    for (int i = 0; i < str.size(); )
+    for (int i = 0; i < str.size();)
     {
-        if(str[i] >= '0' && str[i] <= '9') {
+        if (str[i] >= '0' && str[i] <= '9')
+        {
             // 如果是数字
             node temp;
-            temp.flag = true;   // 表明是数字
+            temp.flag = true; // 表明是数字
             int pos = 0;
             while (str[i] >= '0' && str[i] <= '9')
             {
                 tempStr[pos++] = str[i++];
             }
             tempStr[pos] = '\0';
-            temp.num =  (double) atoi(tempStr);
+            temp.num = (double)atoi(tempStr);
             q.push(temp);
-        }else {
-            // 如果是操作符
+        }
+        else if (str[i] == ')')
+        {
+            while (s.top().op != '(')
+            {
+                q.push(s.top());
+                s.pop();
+            }
+            s.pop();
+            i++;
+        }
+        else if (str[i] == '(')
+        {
             node temp;
             temp.flag = false;
-            while (op[str[i]] <= op[s.top().op])
+            temp.op = str[i];
+            s.push(temp);
+            i++;
+        }
+        else
+        { // 如果是操作符
+            node temp;
+            temp.flag = false;
+            // 直接放入的情况有两种：
+            // 1. 栈顶是左括号
+            // 2. 栈顶符号的优先级小于当前符号的优先级
+            // 当这两条都不满足时候才进行 弹出
+            while (s.top().op != '(' && op[str[i]] <= op[s.top().op])
             {
                 q.push(s.top());
                 s.pop();
@@ -69,7 +95,7 @@ void Change()
     {
         q.push(s.top());
         s.pop();
-    }    
+    }
 }
 
 double cal(char op, double a, double b) {
