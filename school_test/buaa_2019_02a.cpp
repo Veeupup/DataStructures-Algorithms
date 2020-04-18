@@ -1,7 +1,5 @@
 /*
-    Author: Veeupup
-
-    
+    Author: Veeupup    
  */
 #include <iostream>
 #include <cstdio>
